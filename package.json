@@ -1,0 +1,16 @@
+{
+  "name": "lambdatemplate",
+  "version": "1.0.0",
+  "description": "Lambdaのテンプレート",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkasakiTomohiro/LambdaTemplate.git"
+  },
+  "author": "Akasaki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AkasakiTomohiro/LambdaTemplate/issues"
+  },
+  "homepage": "https://github.com/AkasakiTomohiro/LambdaTemplate#readme"
+}
