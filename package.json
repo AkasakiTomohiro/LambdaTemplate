@@ -12,5 +12,9 @@
   "bugs": {
     "url": "https://github.com/AkasakiTomohiro/LambdaTemplate/issues"
   },
-  "homepage": "https://github.com/AkasakiTomohiro/LambdaTemplate#readme"
+  "homepage": "https://github.com/AkasakiTomohiro/LambdaTemplate#readme",
+  "devDependencies": {
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  }
 }
