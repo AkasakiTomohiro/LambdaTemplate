@@ -71,5 +71,6 @@ typings/
 
 # Project
 dist/
+cdk.out/
 package-lock.json
 packaged-sam.yaml

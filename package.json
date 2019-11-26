@@ -24,12 +24,19 @@
     "deploy": "aws --profile $npm_package_config_profile cloudformation deploy --template-file ./packaged-sam.yaml --stack-name $npm_package_config_cloudFormationStackName --capabilities CAPABILITY_NAMED_IAM --region $npm_package_config_region",
     "package-deploy": "ENV=production npm run webpack && npm run package && npm run deploy",
     "delete-stack": "aws --profile $npm_package_config_profile cloudformation delete-stack --stack-name $npm_package_config_cloudFormationStackName --region $npm_package_config_region",
-    "setup": "(aws --profile $npm_package_config_profile s3api get-bucket-location --bucket $npm_package_config_project_name-$npm_package_config_account_id-$npm_package_config_region --region $npm_package_config_region || npm run create-bucket) && npm run package-deploy"
+    "setup": "(aws --profile $npm_package_config_profile s3api get-bucket-location --bucket $npm_package_config_project_name-$npm_package_config_account_id-$npm_package_config_region --region $npm_package_config_region || npm run create-bucket) && npm run package-deploy",
+    "cdk": "cdk --help",
+    "cFn": "cdk synth --no-staging > template.yml"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@aws-cdk/core": "^1.18.0",
+    "source-map-support": "^0.5.16"
+  },
   "devDependencies": {
+    "@aws-cdk/assert": "^1.18.0",
     "@types/aws-lambda": "^8.10.36",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.12",
