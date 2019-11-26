@@ -1,24 +1,52 @@
 {
-  "name": "lambdatemplate",
+  "name": "lambda-template-2",
   "version": "1.0.0",
-  "description": "Lambdaのテンプレート",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AkasakiTomohiro/LambdaTemplate.git"
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "profile": "default",
+    "account_id": "",
+    "region": "ap-northeast-1",
+    "cloudFormationStackName": "AwsServerlessStack",
+    "project_name": "temp"
   },
-  "author": "Akasaki",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/AkasakiTomohiro/LambdaTemplate/issues"
+  "scripts": {
+    "Api:Start": "sam local start-api -p 4000 -t ./template.yaml",
+    "Api:Start:Dev": "sam local start-api -p 4000 -t ./template.yaml -d 5858",
+    "LintStaged": "lint-staged",
+    "CodeStyleCheck": "gts check",
+    "test": "jest --watchAll --collectCoverage",
+    "coverage": "jest --coverage ",
+    "Build": "webpack --config ./webpack.config.js",
+    "create-bucket": "aws --profile $npm_package_config_profile s3 mb s3://$npm_package_config_project_name-$npm_package_config_account_id-$npm_package_config_region --region $npm_package_config_region",
+    "delete-bucket": "aws --profile $npm_package_config_profile s3 rb s3://$npm_package_config_project_name-$npm_package_config_account_id-$npm_package_config_region --region $npm_package_config_region",
+    "package": "aws --profile $npm_package_config_profile cloudformation package --template ./template.yaml --s3-bucket $npm_package_config_project_name-$npm_package_config_account_id-$npm_package_config_region --output-template ./packaged-sam.yaml --region $npm_package_config_region",
+    "deploy": "aws --profile $npm_package_config_profile cloudformation deploy --template-file ./packaged-sam.yaml --stack-name $npm_package_config_cloudFormationStackName --capabilities CAPABILITY_NAMED_IAM --region $npm_package_config_region",
+    "package-deploy": "ENV=production npm run webpack && npm run package && npm run deploy",
+    "delete-stack": "aws --profile $npm_package_config_profile cloudformation delete-stack --stack-name $npm_package_config_cloudFormationStackName --region $npm_package_config_region",
+    "setup": "(aws --profile $npm_package_config_profile s3api get-bucket-location --bucket $npm_package_config_project_name-$npm_package_config_account_id-$npm_package_config_region --region $npm_package_config_region || npm run create-bucket) && npm run package-deploy"
   },
-  "homepage": "https://github.com/AkasakiTomohiro/LambdaTemplate#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "prettier": "^1.18.2",
-    "ts-node": "^8.4.1",
-    "tslint": "^5.9.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.6.3"
+    "@types/aws-lambda": "^8.10.36",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.12",
+    "aws-cdk": "^1.18.0",
+    "aws-sdk": "^2.578.0",
+    "gts": "^1.1.2",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.3",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

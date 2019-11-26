@@ -1,30 +1,59 @@
-{
-  "editor.formatOnSave": true,
-  "extensions.showRecommendationsOnlyOnDemand": false,
-  "prettier.singleQuote": true,
-  "prettier.semi": true,
-  "prettier.printWidth": 120,
-  "prettier.trailingComma": "all",
-  "tslint.autoFixOnSave": true,
-  "files.watcherExclude": {
-    "**/dist/**": true,
-    "**/coverage/**": true
-  },
-  "cSpell.words": [
-    "Cognito",
-    "amazonaws",
-    "api",
-    "api's",
-    "apigateway",
-    "cloudformation",
-    "deconfig",
-    "deconfigure",
-    "eofline",
-    "forin",
-    "inversify",
-    "nospace",
-    "quotemark",
-    "s",
-    "submodule"
-  ]
-}
+  {
+    "editor.formatOnSave": true,
+    "extensions.showRecommendationsOnlyOnDemand": false,
+    "tslint.autoFixOnSave": true,
+    "files.watcherExclude": {
+      "**/dist/**": true,
+      "**/coverage/**": true
+    },
+    "cSpell.words": [
+      "Cognito",
+      "amazonaws",
+      "api",
+      "api's",
+      "apigateway",
+      "cloudformation",
+      "deconfig",
+      "deconfigure",
+      "eofline",
+      "forin",
+      "inversify",
+      "nospace",
+      "quotemark",
+      "s",
+      "submodule"
+    ],
+    "yaml.schemas": {
+      "https://d33vqc0rt9ld30.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json": [
+        "*.cf.yaml",
+        "*.cf.yml",
+        "cloud*formation/*.yaml",
+        "cloud*formation/*.yml",
+        "cloudformation.yaml"
+      ]
+    },
+    "yaml.customTags": [
+      "!Ref",
+      "!Sub scalar",
+      "!Sub sequence",
+      "!Join sequence",
+      "!FindInMap sequence",
+      "!GetAtt scalar",
+      "!GetAtt sequence",
+      "!Base64 mapping",
+      "!GetAZs",
+      "!Select scalar",
+      "!Select sequence",
+      "!Split sequence",
+      "!ImportValue",
+      "!Condition",
+      "!Equals sequence",
+      "!And",
+      "!If",
+      "!Not",
+      "!Or"
+    ],
+    "jest.showCoverageOnLoad": true,
+    "jest.enableCodeLens": true,
+    "jest.pathToConfig": "./jest.config.js"
+  }

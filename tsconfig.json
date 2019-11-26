@@ -3,18 +3,22 @@
     "target": "es2019",
     "module": "commonjs",
     "baseUrl": "./",
-    "declaration": true,
-    "declarationMap": true,
     "sourceMap": true,
     "noImplicitAny": false,
     "strict": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "types": [],
-    "typeRoots": ["node_modules/@types"],
+    "types": [
+      "jest"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "outDir": "./dist"
   },
-  "exclude": ["**/*.spec.ts", "./src/index.ts"],
-  "include": ["./src/**/*"]
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "./src/**/*.ts"
+  ]
 }
