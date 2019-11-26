@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stack 1`] = `
+Object {
+  "Resources": Object {
+    "ServerlessFunction": Object {
+      "Properties": Object {
+        "CodeUri": "./dist",
+        "Events": Object {
+          "GetResource": Object {
+            "Properties": Object {
+              "Method": "any",
+              "Path": "/{proxy+}",
+            },
+            "Type": "Api",
+          },
+        },
+        "Handler": "index.handler",
+        "MemorySize": 128,
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ServerlessFunctionRoleD8A50BCD",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 8,
+      },
+      "Type": "AWS::Serverless::Function",
+    },
+    "ServerlessFunctionRoleD8A50BCD": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          "arn:aws:iam::aws:policy/CloudWatchFullAccess",
+          "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess",
+          "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+  "Transform": "AWS::Serverless-2016-10-31",
+}
+`;
