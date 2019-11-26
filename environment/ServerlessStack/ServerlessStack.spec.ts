@@ -1,6 +1,6 @@
 import { expect as expectCDK, matchTemplate, MatchStyle, SynthUtils } from '@aws-cdk/assert';
-import { ServerlessStack } from './ServerlessStack';
 import { App } from '@aws-cdk/core';
+import { ServerlessStack } from './ServerlessStack';
 
 test('Stack', () => {
   const app = new App();
